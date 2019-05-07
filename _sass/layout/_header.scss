@@ -1,0 +1,64 @@
+///
+/// Massively by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+///
+
+/* Header */
+
+	#header {
+		@include color-typography(invert);
+		@include vendor('align-items', 'center');
+		@include vendor('display', 'flex');
+		@include vendor('flex-direction', 'column');
+		@include vendor('justify-content', 'flex-end');
+		@include vendor('pointer-events', 'none');
+		@include vendor('user-select', 'none');
+		padding-bottom: (_size(padding) * 4);
+		text-align: center;
+		z-index: 2;
+    display: block;
+
+		.logo {
+			@include vendor('transition', (
+				'border-color #{_duration(transition)} ease-in-out',
+				'color #{_duration(transition)} ease-in-out',
+				'opacity 0.5s ease',
+				'transform 0.5s ease',
+				'visibility 0.5s'
+			));
+			@include vendor('pointer-events', 'auto');
+			font-weight: _font(weight-heading);
+			letter-spacing: 0.075em;
+			line-height: 1;
+			padding: 1.75rem 1rem;
+			text-transform: uppercase;
+      border-bottom: 0;
+			visibility: visible;
+      height: 250px;
+      width: 280px;
+      display: inline-block;
+      background-image: url('../../images/logo.png');
+      background-repeat: no-repeat;
+      background-position: center bottom;
+
+			&:hover {
+				border-color: _palette(invert, accent) !important;
+				color: _palette(invert, accent) !important;
+			}
+		}
+
+		@include breakpoint(medium) {
+			height: 19rem;
+			padding-bottom: (_size(padding) * 2);
+		}
+
+		@include breakpoint(small) {
+			padding-bottom: (_size(padding) * 1.5);
+
+			.logo {
+				font-size: 1.75rem;
+				border-width: 3px !important;
+			}
+		}
+	}

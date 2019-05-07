@@ -1,0 +1,80 @@
+---
+layout: null
+pagination:
+  enabled: true
+  title: Gadaj Zdrów – jedz i ćwicz
+---
+
+<html>
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="is-loading">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="{{ "/" | absolute_url }}" class="logo">
+        </a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+
+        {% include nav.html %}
+
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <section class="posts">
+          {% for post in paginator.posts %}
+          <article>
+            <header>
+              <span class="date">{{ post.date | date_to_string }}</span>
+              <h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
+            </header>
+            <a href="{{ post.url | absolute_url }}" class="image fit"><img src="{{ post.image | absolute_url }}" alt="" /></a>
+            <p>{{ post.excerpt }}</p>
+            <ul class="actions">
+              <li><a href="{{ post.url | absolute_url }}" class="button">czytaj dalej</a></li>
+            </ul>
+          </article>
+          {% endfor %}
+          <div style='height: 1px; width: 100%; padding: 1px;'>
+          </div>
+          {% if paginator.total_pages > 1 %}
+          <ul class="pager">
+            {% if paginator.previous_page %}
+            <li class="previous">
+              <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Nowsze wpisy</a>
+            </li>
+            {% endif %}
+            {% if paginator.next_page %}
+            <li class="next">
+              <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Starsze wpisy &rarr;</a>
+            </li>
+            {% endif %}
+          </ul>
+          {% endif %}
+        </section>
+
+        <!-- Footer -->
+        <footer>
+          <ul class="actions">
+            <li><a href="/" class="button">Blog</a></li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+    {% include foot.html %}
+
+    <!-- Scripts -->
+    {% include scripts-main.html %}
+    {% include tracking.html %}
+
+  </body>
+</html>

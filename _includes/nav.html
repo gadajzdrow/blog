@@ -1,0 +1,11 @@
+<ul class="links">
+  {% for link in site.navigation %}
+  {% assign p_url = page.url | replace: "index.html", "" | strip %}
+  <li class="{% if p_url == link.url %} active {% endif %}"><a href="{{ link.url | absolute_url }}">{{link.text}}</a></li>
+  {% endfor %}
+</ul>
+
+<ul class="icons">
+  <li><a href="https://facebook.com/{{site.facebook}}" class="icon fa-facebook" rel="nofollow" target="_blank"><span class="label">Facebook</span></a></li>
+  <li><a href="https://instagram.com/{{site.instagram}}" class="icon fa-instagram" rel="nofollow" target="_blank"><span class="label">Instagram</span></a></li>
+</ul>

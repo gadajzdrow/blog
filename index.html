@@ -1,0 +1,84 @@
+---
+layout: null
+title: Gadaj Zdrów – jedz i ćwicz
+description: Every great website starts with a great homepage. The homepage tells your viewers what your site is all about and gives your viewers a place to come back to.
+sitemap:
+priority: 1.0
+lastmod: 2017-11-02
+changefreq: weekly
+pagination:
+  enabled: true
+---
+<!DOCTYPE HTML>
+<!--
+  Massively by HTML5 UP
+  html5up.net | @ajlkn
+  Jekyll integration by somiibo.com
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    {% include head.html %}
+
+
+  </head>
+  <body class="is-loading">
+
+    <!-- Wrapper -->
+    <div id="wrapper" >
+
+      <!-- Header -->
+      <header id="header">
+        <a href="{{ "/" | absolute_url }}" class="logo">
+        </a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        {% include nav.html %}
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Posts -->
+        <section class="posts">
+          {% for post in paginator.posts %}
+          <article>
+            <header>
+              <span class="date">{{ post.date | date: "%d %m %Y" }}</span>
+              <h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
+            </header>
+            <a href="{{ post.url | absolute_url }}" class="image fit"><img src="{{ post.image | absolute_url }}" alt="" /></a>
+            <p>{{ post.excerpt }}</p>
+            <ul class="actions">
+              <li><a href="{{ post.url | absolute_url }}" class="button">czytaj dalej</a></li>
+            </ul>
+          </article>
+          {% endfor %}
+
+        </section>
+
+        {% if paginator.total_pages > 1 %}
+        <ul>
+          {% if paginator.previous_page %}
+          <li>
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
+          </li>
+          {% endif %}
+          {% if paginator.next_page %}
+          <li>
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older</a>
+          </li>
+          {% endif %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+    {% include foot.html %}
+
+    <!-- Scripts -->
+    {% include scripts-main.html %}
+    {% include tracking.html %}
+
+  </body>
+</html>
