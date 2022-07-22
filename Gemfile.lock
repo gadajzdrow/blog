@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/olery/jekyll-slim.git
+  remote: https://github.com/olery/jekyll-slim.git
   revision: 48c27ea4d5070b9d7313c21e91f9ce4e647b68bc
   specs:
     jekyll-slim (0.10.1)
@@ -97,7 +97,7 @@ GEM
     temple (0.8.1)
     thread_safe (0.3.6)
     tilt (2.0.9)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
 
 PLATFORMS
